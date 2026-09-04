@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.smartcoffee.GUIController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <children>
+        <Label text="Smart Coffee Machine">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        
+        <HBox spacing="20.0" alignment="CENTER">
+            <VBox spacing="10.0" prefWidth="250.0" style="-fx-border-color: #ddd; -fx-padding: 10;">
+                <Label text="Beverage Selection" style="-fx-font-weight: bold;" />
+                <Button fx:id="btnKaffee" text="Black Coffee (1.50€)" maxWidth="Infinity" onAction="#handleOrderKaffee" />
+                <Button fx:id="btnKaffeeMilch" text="Coffee with Milk (2.00€)" maxWidth="Infinity" onAction="#handleOrderKaffeeMilch" />
+                <Separator />
+                <Button fx:id="btnAuffuellen" text="Refill / Maintenance" maxWidth="Infinity" onAction="#handleAuffuellen" />
+            </VBox>
+            
+            <VBox spacing="10.0" prefWidth="250.0" style="-fx-border-color: #ddd; -fx-padding: 10;">
+                <Label text="Machine Status" style="-fx-font-weight: bold;" />
+                <Label fx:id="lblKaffee" text="Coffee: 2000g" />
+                <Label fx:id="lblMilch" text="Milk: 200g" />
+                <Label fx:id="lblTassen" text="Total Cups: 0" />
+                <Label fx:id="lblStatus" text="Status: Ready" textFill="GREEN" />
+            </VBox>
+        </HBox>
+
+        <VBox fx:id="paymentPane" spacing="10.0" visible="false" style="-fx-background-color: #f9f9f9; -fx-padding: 10; -fx-border-color: #ccc;">
+            <Label fx:id="lblPayment" text="Amount Due: 0.00€" />
+            <FlowPane hgap="5.0" vgap="5.0">
+                <Button text="1c" onAction="#handleCoin" userData="0.01" />
+                <Button text="2c" onAction="#handleCoin" userData="0.02" />
+                <Button text="5c" onAction="#handleCoin" userData="0.05" />
+                <Button text="10c" onAction="#handleCoin" userData="0.10" />
+                <Button text="20c" onAction="#handleCoin" userData="0.20" />
+                <Button text="50c" onAction="#handleCoin" userData="0.50" />
+                <Button text="1€" onAction="#handleCoin" userData="1.00" />
+                <Button text="2€" onAction="#handleCoin" userData="2.00" />
+            </FlowPane>
+            <Button text="Cancel Payment" onAction="#handleCancelPayment" />
+        </VBox>
+
+        <TextArea fx:id="txtLog" prefHeight="100.0" editable="false" wrapText="true" />
+    </children>
+</VBox>

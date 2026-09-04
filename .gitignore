@@ -1,0 +1,17 @@
+# Build output directories
+target/
+out/
+
+# IDE / Editor files
+.idea/
+.vscode/
+*.iml
+
+# Binary library dependencies
+lib/
+
+# Local Database files
+*.db
+
+# Logs
+*.log
